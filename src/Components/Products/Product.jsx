@@ -12,6 +12,7 @@ function Product(){
   const [price,setPrice] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [redirect,setRedirect] = useState(false)
 
   const {handleAdd} = useContext(AppContext);
   const {id} = useParams();
@@ -33,6 +34,7 @@ function Product(){
   const handleAddToCart = () => {
     const selectedProduct = {...product,quantity:quantity,price:price}
     handleAdd(selectedProduct);
+    setRedirect(true);
   }
 
 useEffect(() => {
@@ -48,7 +50,7 @@ useEffect(() => {
   })
 },[])
 
- return( isLoading ? <IsLoading /> : isError ? <IsError /> : product ? 
+ return( isLoading ? <IsLoading /> : isError ? <IsError /> : redirect ? <Redirect to="/cart"/> : product ? 
     <Box>
         <div>
           <img src={product.image_url} alt="img"/>

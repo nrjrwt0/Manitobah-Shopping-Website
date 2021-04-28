@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import { Login } from '../Components/Auth/Login'
 import { Register } from '../Components/Auth/Register'
+import { Cart } from '../Components/Cart/Cart'
 import { Footer } from '../Components/Footer/Footer'
 import { Home } from '../Components/Home/Home'
 import {Navbar} from '../Components/Navbar/Navbar'
@@ -33,6 +34,9 @@ function Routes() {
         </Route>
         <Route path="/product/:id">
           <Product />
+        </Route>
+        <Route path="/cart">
+          <Cart />
         </Route>
         <Route path="/login" exact>
           <Login />

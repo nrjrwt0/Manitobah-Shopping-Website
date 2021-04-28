@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
+import { loadData, saveData } from '../Utils/localStorage';
 
 export const AppContext = createContext();
 
@@ -8,6 +9,7 @@ export const AppContextProvider = ({children}) => {
   const handleAdd = (payload) => {
     const updatedCart = cart.filter((({id}) => payload.id !== id))
     setCart([...updatedCart,payload]);
+    saveData('cart',[...updatedCart,payload])
   }
 
   const handleDelete = (id) => {
@@ -17,6 +19,7 @@ export const AppContextProvider = ({children}) => {
     }
     const updatedCart = cart.filter((item => item.id !== id));
     setCart([...updatedCart]);
+    saveData('cart',[...updatedCart])
   }
 
   const value = {
@@ -24,6 +27,11 @@ export const AppContextProvider = ({children}) => {
     handleAdd,
     handleDelete
   }
+
+  useEffect(() => {
+    const localCart = loadData('cart');
+    localCart && setCart(localCart)
+  },[])
 
   return(
     <AppContext.Provider value={value}>

@@ -12,7 +12,7 @@ function Women(){
 
   const fetchWomensData = () => {
     setIsLoading(true);
-    axios.get(`https://json-server-mocker-neeraj-data.herokuapp.com/manitobah?category=storyboots`)
+    axios.get(`https://json-server-mocker-neeraj-data.herokuapp.com/manitobah?category=women`)
     .then((res) => {
       setAllItems(res.data); 
       setIsLoading(false)})
