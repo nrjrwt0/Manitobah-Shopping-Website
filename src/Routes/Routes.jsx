@@ -5,6 +5,11 @@ import { Register } from '../Components/Auth/Register'
 import { Footer } from '../Components/Footer/Footer'
 import { Home } from '../Components/Home/Home'
 import {Navbar} from '../Components/Navbar/Navbar'
+import { Kids } from '../Components/Products/Kids'
+import { Men } from '../Components/Products/Men'
+import { Product } from '../Components/Products/Product'
+import { Storyboots } from '../Components/Products/Storyboots'
+import { Women } from '../Components/Products/Women'
 
 function Routes() {
   return(
@@ -13,6 +18,21 @@ function Routes() {
       <Switch>
         <Route path="/" exact>
           <Home />
+        </Route>
+        <Route path="/women" >
+          <Women />
+        </Route>
+        <Route path="/men" >
+          <Men />
+        </Route>
+        <Route path="/kids">
+          <Kids />
+        </Route>
+        <Route path="/storyboots">
+          <Storyboots />
+        </Route>
+        <Route path="/product/:id">
+          <Product />
         </Route>
         <Route path="/login" exact>
           <Login />
